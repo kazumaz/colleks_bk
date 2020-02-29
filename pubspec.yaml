@@ -44,7 +44,6 @@ dependencies:
 flutter_native_splash:
   image: images/splash.png
   color: "FFFFFF"
-  android: false
 
 flutter_icons:
   android: "launcher_icon" 
