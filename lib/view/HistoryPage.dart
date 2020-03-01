@@ -140,11 +140,10 @@ class HistoryPage extends StatelessWidget {
                                       Row(
                                         children: <Widget>[
                                           Text(
-                                            dateFormat_YYYY_MM_DD
-                                                .format(
+                                            
                                                     reversedHistoryList[index]
-                                                        .dateTime)
-                                                .toString(),
+                                                        .dateTime
+                                                ,
                                             style: TextStyle(
                                               fontSize: 10.0,
                                             ),

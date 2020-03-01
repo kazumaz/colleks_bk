@@ -94,8 +94,10 @@ class _MyHomePageState extends State<MyHomePage> {
     if(initialLogin) {
     final rewardModel = Provider.of<RewordModel>(context);
     final laborModel = Provider.of<LaborModel>(context);
+    final historyModel = Provider.of<HistoryModel>(context);
     rewardModel.initializeApp();
     laborModel.initializeApp();
+    historyModel.initializeApp();
     initialLogin = false;
     setState(() {});
     }

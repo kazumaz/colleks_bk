@@ -11,6 +11,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 import 'package:tutorial_coach_mark/animated_focus_light.dart';
+import 'package:intl/intl.dart';
 
 class LaborPage extends StatelessWidget {
   List<TargetFocus> targets = List();
@@ -22,6 +23,7 @@ class LaborPage extends StatelessWidget {
   final passwordInputController = TextEditingController();
   bool datePicked = false;
   DateTime selectedDate;
+  DateFormat dateFormat_YYYY_MM_DD = DateFormat("yyyy-MM-dd");
 
   @override
   Widget build(BuildContext context) {
@@ -627,7 +629,7 @@ class LaborPage extends StatelessWidget {
       pointModel.addTotalPoint(point: laborModel.laborList[index].point);
       historyModel.addHistoryModel(
           history: History(
-              dateTime: selectedDate,
+              dateTime: dateFormat_YYYY_MM_DD.format(selectedDate),
               name: laborModel.laborList[index].name,
               point: laborModel.laborList[index].point,
               sign: true));

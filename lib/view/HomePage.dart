@@ -9,12 +9,15 @@ import 'package:provider/provider.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 import 'package:tutorial_coach_mark/animated_focus_light.dart';
+import 'package:intl/intl.dart';
 
 class HomePage extends StatelessWidget {
   List<TargetFocus> targets = List();
   GlobalKey keyButton1 = GlobalKey();
   GlobalKey keyButton2 = GlobalKey();
   GlobalKey keyButton3 = GlobalKey();
+
+  DateFormat dateFormat_YYYY_MM_DD = DateFormat("yyyy-MM-dd");
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +67,7 @@ class HomePage extends StatelessWidget {
                 child: 
                 (rewordModel.rewardList.length == 0) ? Center(child: const Text("まだご褒美の登録がありません。\nご褒美画面から登録しよう！")):
                 rewardAchievedList(rewordModel.rewardList, historyModel,
-                    pointModel.totalPoint)),
+                    pointModel.totalPoint, dateFormat_YYYY_MM_DD)),
             const Text("これまでの歩み"),
             const Text(""),
             Container(
@@ -300,7 +303,7 @@ Widget ayumi(PointModel pointModel) {
 }
 
 Widget rewardAchievedList(
-    List<Reward> rewardList, HistoryModel historyModel, int totalpoint) {
+    List<Reward> rewardList, HistoryModel historyModel, int totalpoint, DateFormat dateFormat_YYYY_MM_DD) {
   return Consumer<PointModel>(builder: (context, pointmodel, child) {
     return ListView.builder(
         itemBuilder: (BuildContext context, int index) {
@@ -341,7 +344,9 @@ Widget rewardAchievedList(
                   )
                 ],
               ),
-              onTap: (isButtonDisabled(
+              onTap: (
+                
+                isButtonDisabled(
                       pointmodel.totalPoint, rewardList[index].point)
                   ? () {
                       return AwesomeDialog(
@@ -370,7 +375,7 @@ Widget rewardAchievedList(
                                 point: rewardList[index].point);
                             historyModel.addHistoryModel(
                                 history: History(
-                                    dateTime: DateTime.now(),
+                                    dateTime: dateFormat_YYYY_MM_DD.format(DateTime.now()),
                                     name: rewardList[index].name,
                                     point: rewardList[index].point,
                                     sign: false));

@@ -4,6 +4,7 @@ class SharePrefs {
   //ここで文字列の型を作成します。あとはパーケージが保存してくれます。
   static final rewardList = "rewardList";
   static final laborList = "laborList";
+  static final historyList = "historyList";
   // static final counter = "counter";
   static SharedPreferences _sharedPreferences;
 
@@ -15,6 +16,8 @@ class SharePrefs {
   //setStringList()によって変更されたデータを更新し、新しいデータが方に保存されます。
   //getStringList()はinitState()(そのページに切り替わったとき)、Shared Preferenceから保存されたデータを呼び出す役割をします。
 
+
+//Reward
   static Future<bool> setRewardList(List<String> value) =>
       _sharedPreferences.setStringList(rewardList, value);
 
@@ -23,6 +26,8 @@ class SharePrefs {
 
   static void deleteRewardList() => _sharedPreferences.remove(rewardList);
 
+
+//Labor
   static Future<bool> setLaborList(List<String> value) =>
       _sharedPreferences.setStringList(laborList, value);
 
@@ -30,6 +35,16 @@ class SharePrefs {
       _sharedPreferences.getStringList(laborList) ?? [];
 
   static void deleteLaborList() => _sharedPreferences.remove(laborList);
+
+//History
+  static Future<bool> setHistoryList(List<String> value) =>
+      _sharedPreferences.setStringList(historyList, value);
+
+  static List<String> getHistoryList() =>
+      _sharedPreferences.getStringList(historyList) ?? [];
+
+  static void deleteHistoryList() => _sharedPreferences.remove(historyList);
+
 
   // static Future<bool> setCounter(int value) =>
   //     _sharedPreferences.setInt(counter, value);
