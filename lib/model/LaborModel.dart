@@ -9,6 +9,7 @@ class LaborModel extends ChangeNotifier {
   List<String> stringRewardList = [];
 
    void initializeApp() async {
+     print("labor init");
     //インスタンスを取得
     await SharePrefs.setInstance();
     //Listにデータを取得させる

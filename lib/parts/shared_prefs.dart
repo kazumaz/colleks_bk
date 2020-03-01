@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharePrefs {
@@ -5,7 +6,7 @@ class SharePrefs {
   static final rewardList = "rewardList";
   static final laborList = "laborList";
   static final historyList = "historyList";
-  // static final counter = "counter";
+  static final color = "color";
   static SharedPreferences _sharedPreferences;
 
   static Future setInstance() async {
@@ -44,6 +45,15 @@ class SharePrefs {
       _sharedPreferences.getStringList(historyList) ?? [];
 
   static void deleteHistoryList() => _sharedPreferences.remove(historyList);
+
+//Color
+  static Future<bool> setColor(String value) =>
+      _sharedPreferences.setString(color, value);
+
+  static String getColor() =>
+      _sharedPreferences.getString(color) ?? "purple";
+
+  static void deleterColor() => _sharedPreferences.remove(color);
 
 
   // static Future<bool> setCounter(int value) =>
