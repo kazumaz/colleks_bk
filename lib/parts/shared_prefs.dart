@@ -11,6 +11,7 @@ class SharePrefs {
   static final totalPointEver = "totalPointEver";
   static final totalLaborEver = "totalLaborEver";
   static final totalRewardEver = "totalRewardEver";
+  static final password = "password";
 
   static SharedPreferences _sharedPreferences;
 
@@ -96,5 +97,14 @@ class SharePrefs {
       _sharedPreferences.getInt(totalRewardEver) ?? 0;
 
   static void deleteTotalRewardEver() => _sharedPreferences.remove(totalRewardEver);
+
+//password
+  static Future<bool> setPassword(String value) =>
+      _sharedPreferences.setString(password, value);
+
+  static String getPassword() =>
+      _sharedPreferences.getString(password) ?? null;
+
+  static void deletePassword() => _sharedPreferences.remove(color);
 
 }
