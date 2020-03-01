@@ -96,11 +96,13 @@ class _MyHomePageState extends State<MyHomePage> {
     final laborModel = Provider.of<LaborModel>(context);
     final historyModel = Provider.of<HistoryModel>(context);
     final colorModel = Provider.of<ColorModel>(context);
+    final pointModel = Provider.of<PointModel>(context);
     print("はーい");
     rewardModel.initializeApp();
     laborModel.initializeApp();
     historyModel.initializeApp();
     colorModel.initializeApp();
+    pointModel.initializeApp();
     initialLogin = false;
     setState(() {});
     }

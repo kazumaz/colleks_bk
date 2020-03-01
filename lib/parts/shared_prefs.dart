@@ -7,6 +7,11 @@ class SharePrefs {
   static final laborList = "laborList";
   static final historyList = "historyList";
   static final color = "color";
+  static final totalPoint = "totalPoint";
+  static final totalPointEver = "totalPointEver";
+  static final totalLaborEver = "totalLaborEver";
+  static final totalRewardEver = "totalRewardEver";
+
   static SharedPreferences _sharedPreferences;
 
   static Future setInstance() async {
@@ -55,11 +60,41 @@ class SharePrefs {
 
   static void deleterColor() => _sharedPreferences.remove(color);
 
+//point
+  //total point
+  static Future<bool> setTotalPoint(int value) =>
+      _sharedPreferences.setInt(totalPoint, value);
 
-  // static Future<bool> setCounter(int value) =>
-  //     _sharedPreferences.setInt(counter, value);
+  static int getTotalPoint() =>
+      _sharedPreferences.getInt(totalPoint) ?? 3;
 
-  // static int getCounter() =>
-  //     _sharedPreferences.getInt(counter) ?? 0;
-  // static void deleteCounter() => _sharedPreferences.remove(counter);
+  static void deleteTotalPoint() => _sharedPreferences.remove(totalPoint);
+
+  //total pointever 
+  static Future<bool> setTotalPointEver(int value) =>
+      _sharedPreferences.setInt(totalPointEver, value);
+
+  static int getTotalPointEver() =>
+      _sharedPreferences.getInt(totalPointEver) ?? 3;
+
+  static void deleteTotalPointEver() => _sharedPreferences.remove(totalPointEver);
+
+ //total labor ever
+  static Future<bool> setTotalLaborEver(int value) =>
+      _sharedPreferences.setInt(totalLaborEver, value);
+
+  static int getTotalLaborEver() =>
+      _sharedPreferences.getInt(totalLaborEver) ?? 0;
+
+  static void deleteTotalLaborEver() => _sharedPreferences.remove(totalLaborEver);
+
+//total reward ever
+  static Future<bool> setTotalRewardEver(int value) =>
+      _sharedPreferences.setInt(totalRewardEver, value);
+
+  static int getTotalRewardEver() =>
+      _sharedPreferences.getInt(totalRewardEver) ?? 0;
+
+  static void deleteTotalRewardEver() => _sharedPreferences.remove(totalRewardEver);
+
 }

@@ -392,9 +392,8 @@ Widget rewardAchievedList(
                               ),
                               tittle: 'This is Ignored',
                               desc: 'This is also Ignored',
-                              btnOkOnPress: () {
-                                // Navigator.pop(context);
-                              },
+                              // btnOkOnPress: () {                                
+                              // },
                             ).show();
                           }).show();
                     }
