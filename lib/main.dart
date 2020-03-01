@@ -9,6 +9,7 @@ import 'package:colleks/view/HistoryPage.dart';
 import 'package:colleks/view/PointChangePage.dart';
 import 'package:colleks/view/PasswordSettingPage.dart';
 import 'package:colleks/view/RockSettingPage.dart';
+import 'package:colleks/view/FirstTutorialPage.dart';
 import 'package:colleks/model/LaborModel.dart';
 import 'package:colleks/model/RewardModel.dart';
 import 'package:colleks/model/HistoryModel.dart';
@@ -19,6 +20,7 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:ff_navigation_bar/ff_navigation_bar.dart';
 import 'package:colleks/parts/shared_prefs.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() => runApp(MyApp());
 
@@ -43,17 +45,20 @@ class Application extends StatelessWidget {
       builder: (context, color, child) {
         return MaterialApp(
           // title: 'Flutter Demo',
-           debugShowCheckedModeBanner: false,
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(
             primarySwatch: color.themaColor,
           ),
           home: MyHomePage(title: 'Flutter Demo Home Page'),
+          // initialRoute: '/',
           routes: <String, WidgetBuilder>{
+            // '/': (BuildContext context): (_) => HomePage(),
             '/colorSettings': (_) => ColorSettingPage(),
             '/home': (_) => MyHomePage(title: 'Flutter Demo Home Page'),
             '/passwordSetting': (_) => PassWordSettingPage(),
             '/pointChange': (_) => PointChangePage(),
             '/rockSetting': (_) => RockSettingPage(),
+            // '/firstTutorial': (_) => FirstTutorialPage(),
           },
         );
       },
@@ -74,12 +79,31 @@ class _MyHomePageState extends State<MyHomePage> {
   PageController _pageController;
   int _page = 0;
   bool initialLogin = true;
+  bool first;
 
   @override
   void initState() {
     super.initState();
     _pageController = PageController();
-    print("initi");
+
+// 初回ログイン時てのみ。チュートリアルページを作成する
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      var prefs = await SharedPreferences.getInstance();
+      if (prefs.getBool('isFirstLaunch') ?? true) {
+
+  final ValueNotifier<double> notifier = ValueNotifier(0);
+  int pageCount = 6;
+
+        Navigator.push(
+            context,
+            new MaterialPageRoute(
+                builder: (context) => new FirstTutorialPage(
+                              pageCount: pageCount,
+            notifier: notifier,
+                )));
+      }
+    });
+    // });
   }
 
   @override
@@ -91,24 +115,23 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    if(initialLogin) {
-    final rewardModel = Provider.of<RewordModel>(context);
-    final laborModel = Provider.of<LaborModel>(context);
-    final historyModel = Provider.of<HistoryModel>(context);
-    final colorModel = Provider.of<ColorModel>(context);
-    final pointModel = Provider.of<PointModel>(context);
-    final passwordModel = Provider.of<PasswordModel>(context);
-    final lockModel = Provider.of<LockModel>(context);
-    print("はーい");
-    rewardModel.initializeApp();
-    laborModel.initializeApp();
-    historyModel.initializeApp();
-    colorModel.initializeApp();
-    pointModel.initializeApp();
-    passwordModel.initializeApp();
-    lockModel.initializeApp();
-    initialLogin = false;
-    setState(() {});
+    if (initialLogin) {
+      final rewardModel = Provider.of<RewordModel>(context);
+      final laborModel = Provider.of<LaborModel>(context);
+      final historyModel = Provider.of<HistoryModel>(context);
+      final colorModel = Provider.of<ColorModel>(context);
+      final pointModel = Provider.of<PointModel>(context);
+      final passwordModel = Provider.of<PasswordModel>(context);
+      final lockModel = Provider.of<LockModel>(context);
+      rewardModel.initializeApp();
+      laborModel.initializeApp();
+      historyModel.initializeApp();
+      colorModel.initializeApp();
+      pointModel.initializeApp();
+      passwordModel.initializeApp();
+      lockModel.initializeApp();
+      initialLogin = false;
+      setState(() {});
     }
   }
 
