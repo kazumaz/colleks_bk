@@ -93,8 +93,9 @@ class _MyHomePageState extends State<MyHomePage> {
     super.didChangeDependencies();
     if(initialLogin) {
     final rewardModel = Provider.of<RewordModel>(context);
+    final laborModel = Provider.of<LaborModel>(context);
     rewardModel.initializeApp();
-    print("didfirdtChangeDependencys");
+    laborModel.initializeApp();
     initialLogin = false;
     setState(() {});
     }

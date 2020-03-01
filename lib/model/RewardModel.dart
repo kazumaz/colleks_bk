@@ -20,6 +20,7 @@ class RewordModel extends ChangeNotifier {
     if (rewardList.length == 0) {
       rewardList = [
         Reward(name: "お菓子", point: 30),
+        Reward(name: "お寿司", point: 100),
         Reward(name: "おもちゃ", point: 100),
         Reward(name: "ゲーム", point: 200),
         Reward(name: "遊園地", point: 300),
