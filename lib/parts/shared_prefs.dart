@@ -59,7 +59,7 @@ class SharePrefs {
       _sharedPreferences.setString(color, value);
 
   static String getColor() =>
-      _sharedPreferences.getString(color) ?? "purple";
+      _sharedPreferences.getString(color) ?? "green";
 
   static void deleterColor() => _sharedPreferences.remove(color);
 

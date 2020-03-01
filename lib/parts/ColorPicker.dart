@@ -75,10 +75,10 @@ class SelectionScreen extends StatelessWidget {
                 },
               ),
               IconButton(
-                icon: Icon(Icons.lens, color: Colors.yellow),
+                icon: Icon(Icons.lens, color: Colors.green),
                 iconSize: 65.0,
                 onPressed: () {
-                  Provider.of<ColorModel>(context, listen: false).setYellow();
+                  Provider.of<ColorModel>(context, listen: false).setGreen();
                 },
               ),
               IconButton(

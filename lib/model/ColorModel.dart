@@ -74,9 +74,9 @@ class ColorModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void setYellow() {
-    themaColor = Colors.yellow;
-    saveColor("yellow");
+  void setGreen() {
+    themaColor = Colors.green;
+    saveColor("green");
     notifyListeners();
   }
 
@@ -157,6 +157,9 @@ class ColorModel extends ChangeNotifier {
         break;
       case 'lightGreen':
         color = Colors.lightGreen;
+        break;
+      case 'green':
+        color = Colors.green;
         break;
     }
 
