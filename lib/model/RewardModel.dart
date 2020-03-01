@@ -18,13 +18,11 @@ class RewordModel extends ChangeNotifier {
     });
 
     if (rewardList.length == 0) {
-      print("えええええ");
       rewardList = [
-        Reward(name: "お菓子", point: 3),
-        Reward(name: "遊園地", point: 40),
-        Reward(name: "ディズニー", point: 10000),
-        Reward(name: "おもちゃ", point: 10),
-        Reward(name: "うまい棒", point: 1),
+        Reward(name: "お菓子", point: 30),
+        Reward(name: "おもちゃ", point: 100),
+        Reward(name: "ゲーム", point: 200),
+        Reward(name: "遊園地", point: 300),
       ];
     }
     notifyListeners();
@@ -54,10 +52,9 @@ class RewordModel extends ChangeNotifier {
     rewardList[index] = reward;
     saveRewardList(rewardList);
     notifyListeners();
-    
   }
 
-    void saveRewardList(List<Reward> rewardList) {
+  void saveRewardList(List<Reward> rewardList) {
     stringRewardList.clear();
     rewardList.forEach((Reward reward) {
       // Todoオブジェクト -> Map -> String の順でエンコード
@@ -70,7 +67,6 @@ class RewordModel extends ChangeNotifier {
     SharePrefs.setRewardList(stringRewardList);
   }
 }
-
 
 class Reward {
   String name;
