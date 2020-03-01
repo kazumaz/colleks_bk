@@ -98,6 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final colorModel = Provider.of<ColorModel>(context);
     final pointModel = Provider.of<PointModel>(context);
     final passwordModel = Provider.of<PasswordModel>(context);
+    final lockModel = Provider.of<LockModel>(context);
     print("はーい");
     rewardModel.initializeApp();
     laborModel.initializeApp();
@@ -105,6 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
     colorModel.initializeApp();
     pointModel.initializeApp();
     passwordModel.initializeApp();
+    lockModel.initializeApp();
     initialLogin = false;
     setState(() {});
     }

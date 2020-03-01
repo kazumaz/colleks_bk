@@ -12,6 +12,8 @@ class SharePrefs {
   static final totalLaborEver = "totalLaborEver";
   static final totalRewardEver = "totalRewardEver";
   static final password = "password";
+  static final pointChangePageRockState = "pointChangePageRockState";
+  static final laborGetRockState = "laborGetRockState";
 
   static SharedPreferences _sharedPreferences;
 
@@ -106,5 +108,19 @@ class SharePrefs {
       _sharedPreferences.getString(password) ?? null;
 
   static void deletePassword() => _sharedPreferences.remove(color);
+
+//rock model
+  static Future<bool> setPointChangePageRockState(bool value) =>
+      _sharedPreferences.setBool(pointChangePageRockState, value);
+
+  static bool getPointChangePageRockState() =>
+      _sharedPreferences.getBool(pointChangePageRockState) ?? false;
+
+
+  static Future<bool> setLaborGetRockState(bool value) =>
+      _sharedPreferences.setBool(laborGetRockState, value);
+
+  static bool getLaborGetRockState() =>
+      _sharedPreferences.getBool(laborGetRockState) ?? false;
 
 }
