@@ -18,6 +18,7 @@ import 'package:colleks/model/LockModel.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:ff_navigation_bar/ff_navigation_bar.dart';
+import 'package:colleks/parts/shared_prefs.dart';
 
 void main() => runApp(MyApp());
 
@@ -42,6 +43,7 @@ class Application extends StatelessWidget {
       builder: (context, color, child) {
         return MaterialApp(
           // title: 'Flutter Demo',
+           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             primarySwatch: color.themaColor,
           ),
@@ -71,11 +73,13 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   PageController _pageController;
   int _page = 0;
+  bool initialLogin = true;
 
   @override
   void initState() {
     super.initState();
     _pageController = PageController();
+    print("initi");
   }
 
   @override
@@ -85,17 +89,20 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if(initialLogin) {
+    final rewardModel = Provider.of<RewordModel>(context);
+    rewardModel.initializeApp();
+    print("didfirdtChangeDependencys");
+    initialLogin = false;
+    setState(() {});
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(widget.title),
-      //           actions: <Widget>[
-      //     IconButton(
-      //       icon: Icon(Icons.help_outline),
-      //       onPressed: () {}
-                
-      //     )]
-      // ),
       body: PageView(
         controller: _pageController,
         onPageChanged: onPageChanged,
@@ -145,40 +152,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     appBar: AppBar(
-  //       title: Text('Application Name'),
-  //       elevation: 4.0,
-  //     ),
-  //     body: PageView(
-  //       controller: _pageController,
-  //       onPageChanged: onPageChanged,
-  //       children: [
-  //         HomePage(),
-  //         LaborPage(),
-  //         RewardPage(),
-  //         SettingsPage(),
-  //       ],
-  //     ),
-  //     bottomNavigationBar: BottomNavigationBar(
-  //       type: BottomNavigationBarType.fixed,
-  //       currentIndex: _page,
-  //       onTap: onTapBottomNavigation,
-  //       items: [
-  //         BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("ホーム")),
-  //         BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("お手伝い")),
-  //         BottomNavigationBarItem(
-  //             icon: Icon(Icons.local_library), title: Text("ご褒美")),
-  //         BottomNavigationBarItem(
-  //             icon: Icon(Icons.settings), title: Text("設定")),
-  //       ],
-  //     ),
-  //     drawer: myDrawer(),
-  //   );
-  // }
-
   void onTapBottomNavigation(int page) {
     _pageController.animateToPage(page,
         duration: const Duration(milliseconds: 300), curve: Curves.ease);
@@ -188,48 +161,5 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       this._page = page;
     });
-  }
-}
-
-Widget myDrawer() {
-  return Drawer(
-    // Add a ListView to the drawer. This ensures the user can scroll
-    // through the options in the drawer if there isn't enough vertical
-    // space to fit everything.
-    child: ListView(
-      // Important: Remove any padding from the ListView.
-      padding: EdgeInsets.zero,
-      children: <Widget>[
-        DrawerHeader(
-          child: Text('Drawer Header'),
-          decoration: BoxDecoration(
-            color: Colors.blue,
-          ),
-        ),
-        ListTile(
-          title: Text('Item 1'),
-          onTap: () {
-            launchURL;
-            // Navigator.pop(context);
-          },
-        ),
-        ListTile(
-          title: Text('Item 2'),
-          onTap: () {
-            // Navigator.pop(context);
-          },
-        ),
-      ],
-    ),
-  );
-}
-
-launchURL() async {
-  const url = 'https://flutter.dev';
-  print("test");
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
   }
 }
