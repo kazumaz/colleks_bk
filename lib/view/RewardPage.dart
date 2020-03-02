@@ -32,7 +32,7 @@ class RewardPage extends StatelessWidget {
           ]),
           body: Column(children: <Widget>[
             const Text(""),
-            Text("ここからご褒美追加！\nスワイプして削除・編集も可能！", key: keyButton1),
+            Text("ここからご褒美追加！\nスワイプして削除・編集も可能！\nご褒美の交換はホーム画面から！", key: keyButton1),
             const Text(""),
             Expanded(
                 child: ListView.builder(
