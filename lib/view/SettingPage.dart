@@ -8,6 +8,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:provider/provider.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 import 'package:tutorial_coach_mark/animated_focus_light.dart';
+import 'package:colleks/view/FitstTutorialPageScafold.dart';
 
 class SettingsPage extends StatelessWidget {
     List<TargetFocus> targets = List();
@@ -23,7 +24,7 @@ class SettingsPage extends StatelessWidget {
     return Consumer2<PasswordModel, LockModel>(
         builder: (context, passwordModel, lockModel, child) {
       return Scaffold(
-          appBar: AppBar(title: Text("設定"), actions: <Widget>[
+          appBar: AppBar(title: Text("設定"),  leading: Container(), actions: <Widget>[
                         IconButton(
                 icon: Icon(Icons.help_outline),
                 onPressed: () {
@@ -53,6 +54,7 @@ class SettingsPage extends StatelessWidget {
                 _appShare("　このアプリを紹介", Icon(Ionicons.ios_rocket), context),
                 _appReview("　このアプリを評価", Icon(Icons.star), context),
                 _donate("　アプリのサポートページ", Icon(MaterialCommunityIcons.web), context),
+                _tutorial("　チュートリアルをもう一度見る", Icon(FontAwesome.book), context),
               ])),
             ],
           ));
@@ -154,6 +156,39 @@ class SettingsPage extends StatelessWidget {
             },
           ).show();
         }
+      },
+    );
+  }
+
+    Widget _tutorial(String title, Icon icon, BuildContext context) {
+    return GestureDetector(
+      child: Container(        
+          padding: EdgeInsets.all(8.0),
+          decoration: new BoxDecoration(
+              color: Colors.white,
+              border: new Border(
+                  bottom: BorderSide(width: 1.0, color: Colors.grey))),
+          child: Row(
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.all(5.0),
+                child: icon,
+              ),
+              Text(
+                title,
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+              ),
+            ],
+          )),
+      onTap: () {
+        Navigator.pushReplacement(
+            context,
+             MaterialPageRoute(
+                builder: (context) => FirstTutorialPageScafold(
+            
+                )));
       },
     );
   }

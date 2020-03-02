@@ -94,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
         prefs.setInt('version', 1);
         Navigator.push(
             context,
-            new MaterialPageRoute(
+             MaterialPageRoute(
                 builder: (context) => FirstTutorialPageScafold(
             
                 )));

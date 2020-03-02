@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
     return Consumer3<PointModel, RewordModel, HistoryModel>(
         builder: (context, pointModel, rewordModel, historyModel, child) {
       return Scaffold(
-          appBar: AppBar(title: const Text("Colleks"), actions: <Widget>[
+          appBar: AppBar(title: const Text("Colleks"),  leading: Container(),actions: <Widget>[
             IconButton(
                 icon: Icon(Icons.help_outline),
                 onPressed: () {
