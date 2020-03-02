@@ -478,7 +478,7 @@ class SettingsPage extends StatelessWidget {
           btnCancelOnPress: () {},
           btnOkOnPress: () {
             Share.share(
-                'check out my app https://kazumaz.github.io/dama_app_pages/');
+                'このアプリおすすめだよ！ https://kazumaz.github.io/dama_app_pages/');
           },
         ).show();
       },
