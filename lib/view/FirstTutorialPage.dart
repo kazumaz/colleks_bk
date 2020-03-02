@@ -31,10 +31,14 @@ class _FirstTutorialPage extends State<FirstTutorialPage> {
   Widget build(BuildContext context) {
     return AnimatedBackgroundColor(
         colors: const[
-        Color(0xFFFF5252),
+        Color(0xFFFF6F00),
         Color(0xFF2196F3),
         Color(0xFFF06292),
         Color(0xFF7C4DFF)],
+        // Color(0xFFCCFF90),
+        // Color(0xFFE0F7FA),
+        // Color(0xFFFCE4EC),
+        // Color(0xFFFFFFFF)],
         pageController: _pageController,
         pageCount: widget.pageCount,
         child: Container(

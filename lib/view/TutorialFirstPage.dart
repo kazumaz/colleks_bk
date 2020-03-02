@@ -116,7 +116,7 @@ class TutorialFirstPage extends StatelessWidget {
                     child: Image.asset(
                       "images/first_cut.png",
                     ),
-                    offset: 50),
+                    offset: 300),
               ),
             ),
             // Center(
