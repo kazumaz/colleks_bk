@@ -9,21 +9,21 @@ class TutorialFourthPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-    
-      SlidingPage(
+    return SlidingPage(
       notifier: notifier,
       page: page,
       child: Container(
-        alignment: Alignment.center,
-        child: 
-        
-        
-        InkWell(
-          onTap: () {
-             Navigator.of(context).pushNamed("/home");
-          },
-          child: Text(
+          alignment: Alignment.center,
+          child: Center(
+              child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamed("/home");
+                  },
+                  child: Center(
+                      child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Text(
                         "はじめる",
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -32,11 +32,19 @@ class TutorialFourthPage extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
-                        
-                      ),)
-        
-      ),
+                      ),
+                      Text(
+                        "タップしてください",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          decoration: TextDecoration.none,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ))))),
     );
   }
 }
-

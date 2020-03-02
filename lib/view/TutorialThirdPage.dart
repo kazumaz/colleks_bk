@@ -7,7 +7,7 @@ class TutorialThirdPage extends StatelessWidget {
 
   TutorialThirdPage(this.page, this.notifier);
 
- @override
+  @override
   Widget build(BuildContext context) {
     return SlidingPage(
       notifier: notifier,
@@ -47,7 +47,7 @@ class TutorialThirdPage extends StatelessWidget {
                         fontSize: 30,
                         color: Colors.white,
                       ),
-                    ),                  
+                    ),
                     SlidingContainer(
                       offset: 500,
                       child: Text(
@@ -59,9 +59,8 @@ class TutorialThirdPage extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
-                        
                       ),
-                    ),                    
+                    ),
                     SlidingContainer(
                       offset: 300,
                       child: Text(
@@ -73,7 +72,6 @@ class TutorialThirdPage extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
-                        
                       ),
                     ),
                   ],

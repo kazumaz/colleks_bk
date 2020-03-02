@@ -47,7 +47,7 @@ class TutorialSecondPage extends StatelessWidget {
                         fontSize: 30,
                         color: Colors.white,
                       ),
-                    ),                  
+                    ),
                     SlidingContainer(
                       offset: 500,
                       child: Text(
@@ -59,9 +59,8 @@ class TutorialSecondPage extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
-                        
                       ),
-                    ),                    
+                    ),
                     SlidingContainer(
                       offset: 300,
                       child: Text(
@@ -73,10 +72,8 @@ class TutorialSecondPage extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
-                        
                       ),
                     ),
-
                   ],
                 )),
             Container(

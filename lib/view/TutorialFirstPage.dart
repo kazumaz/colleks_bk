@@ -47,7 +47,7 @@ class TutorialFirstPage extends StatelessWidget {
                         fontSize: 30,
                         color: Colors.white,
                       ),
-                    ),                  
+                    ),
                     SlidingContainer(
                       offset: 500,
                       child: Text(
@@ -59,7 +59,6 @@ class TutorialFirstPage extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
-                        
                       ),
                     ),
                     Text(""),
@@ -74,10 +73,9 @@ class TutorialFirstPage extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
-                        
                       ),
                     ),
-                     SlidingContainer(
+                    SlidingContainer(
                       offset: 200,
                       child: Text(
                         "お手伝い管理",
@@ -88,10 +86,9 @@ class TutorialFirstPage extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
-                        
                       ),
                     ),
-                     SlidingContainer(
+                    SlidingContainer(
                       offset: 100,
                       child: Text(
                         "ご褒美管理",
@@ -102,7 +99,6 @@ class TutorialFirstPage extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
-                        
                       ),
                     ),
                   ],
