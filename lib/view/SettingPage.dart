@@ -11,12 +11,12 @@ import 'package:tutorial_coach_mark/animated_focus_light.dart';
 import 'package:colleks/view/FitstTutorialPageScafold.dart';
 
 class SettingsPage extends StatelessWidget {
-    List<TargetFocus> targets = List();
+  List<TargetFocus> targets = List();
   GlobalKey keyButton1 = GlobalKey();
   GlobalKey keyButton2 = GlobalKey();
   GlobalKey keyButton3 = GlobalKey();
   GlobalKey keyButton4 = GlobalKey();
-  
+
   final passwordInputController = TextEditingController();
 
   @override
@@ -24,8 +24,9 @@ class SettingsPage extends StatelessWidget {
     return Consumer2<PasswordModel, LockModel>(
         builder: (context, passwordModel, lockModel, child) {
       return Scaffold(
-          appBar: AppBar(title: Text("設定"),  leading: Container(), actions: <Widget>[
-                        IconButton(
+          appBar:
+              AppBar(title: Text("設定"), leading: Container(), actions: <Widget>[
+            IconButton(
                 icon: Icon(Icons.help_outline),
                 onPressed: () {
                   initTargets();
@@ -42,18 +43,20 @@ class SettingsPage extends StatelessWidget {
                 Text(""),
                 Text("　設定"),
                 _passwordSetting("　パスワード設定", Icon(Ionicons.ios_lock), context),
-                _rockSetting("　ポイント追加時のパスワード要否設定", Icon(Ionicons.ios_contact), context,
-                    passwordModel),
-                _colorSetting("　テーマカラーの変更", Icon(Ionicons.ios_color_palette), context),
-                _pointChange("　ポイントの追加・削除", Icon(MaterialCommunityIcons.coins), context,
-                    passwordModel, lockModel),                
+                _rockSetting("　ポイント追加時のパスワード要否設定", Icon(Ionicons.ios_contact),
+                    context, passwordModel),
+                _colorSetting(
+                    "　テーマカラーの変更", Icon(Ionicons.ios_color_palette), context),
+                _pointChange("　ポイントの追加・削除", Icon(MaterialCommunityIcons.coins),
+                    context, passwordModel, lockModel),
                 Text(""),
                 Text("　アプリについて"),
                 _opinionPage("　ご意見・ご要望など", Icon(Entypo.pencil), context),
                 _twitterPage("　開発者のツート", Icon(FontAwesome.twitter), context),
                 _appShare("　このアプリを紹介", Icon(Ionicons.ios_rocket), context),
                 _appReview("　このアプリを評価", Icon(Icons.star), context),
-                _donate("　アプリのサポートページ", Icon(MaterialCommunityIcons.web), context),
+                _donate(
+                    "　アプリのサポートページ", Icon(MaterialCommunityIcons.web), context),
                 _tutorial("　チュートリアルをもう一度見る", Icon(FontAwesome.book), context),
               ])),
             ],
@@ -65,7 +68,7 @@ class SettingsPage extends StatelessWidget {
       PasswordModel passwordModel) {
     return GestureDetector(
       child: Container(
-        key: keyButton2,
+          key: keyButton2,
           padding: EdgeInsets.all(8.0),
           decoration: new BoxDecoration(
               color: Colors.white,
@@ -77,12 +80,14 @@ class SettingsPage extends StatelessWidget {
                 margin: EdgeInsets.all(5.0),
                 child: icon,
               ),
-              Text(
+              Expanded(
+                  child: Text(
                 title,
                 style: TextStyle(
                   color: Colors.black,
                 ),
-              ),
+              )),
+              Icon(Ionicons.ios_arrow_forward)
             ],
           )),
       onTap: () {
@@ -160,9 +165,9 @@ class SettingsPage extends StatelessWidget {
     );
   }
 
-    Widget _tutorial(String title, Icon icon, BuildContext context) {
+  Widget _tutorial(String title, Icon icon, BuildContext context) {
     return GestureDetector(
-      child: Container(        
+      child: Container(
           padding: EdgeInsets.all(8.0),
           decoration: new BoxDecoration(
               color: Colors.white,
@@ -174,21 +179,21 @@ class SettingsPage extends StatelessWidget {
                 margin: EdgeInsets.all(5.0),
                 child: icon,
               ),
-              Text(
+              Expanded(
+                  child: Text(
                 title,
                 style: TextStyle(
                   color: Colors.black,
                 ),
-              ),
+              )),
+              Icon(Ionicons.ios_arrow_forward)
             ],
           )),
       onTap: () {
         Navigator.pushReplacement(
             context,
-             MaterialPageRoute(
-                builder: (context) => FirstTutorialPageScafold(
-            
-                )));
+            MaterialPageRoute(
+                builder: (context) => FirstTutorialPageScafold()));
       },
     );
   }
@@ -196,7 +201,7 @@ class SettingsPage extends StatelessWidget {
   Widget _colorSetting(String title, Icon icon, BuildContext context) {
     return GestureDetector(
       child: Container(
-        key: keyButton3,
+          key: keyButton3,
           padding: EdgeInsets.all(8.0),
           decoration: new BoxDecoration(
               color: Colors.white,
@@ -208,12 +213,14 @@ class SettingsPage extends StatelessWidget {
                 margin: EdgeInsets.all(5.0),
                 child: icon,
               ),
-              Text(
+              Expanded(
+                  child: Text(
                 title,
                 style: TextStyle(
                   color: Colors.black,
                 ),
-              ),
+              )),
+              Icon(Ionicons.ios_arrow_forward)
             ],
           )),
       onTap: () {
@@ -226,7 +233,7 @@ class SettingsPage extends StatelessWidget {
   Widget _passwordSetting(String title, Icon icon, BuildContext context) {
     return GestureDetector(
       child: Container(
-        key: keyButton1,
+          key: keyButton1,
           padding: EdgeInsets.all(8.0),
           decoration: new BoxDecoration(
               color: Colors.white,
@@ -238,12 +245,14 @@ class SettingsPage extends StatelessWidget {
                 margin: EdgeInsets.all(5.0),
                 child: icon,
               ),
-              Text(
+              Expanded(
+                  child: Text(
                 title,
                 style: TextStyle(
                   color: Colors.black,
                 ),
-              ),
+              )),
+              Icon(Ionicons.ios_arrow_forward)
             ],
           )),
       onTap: () {
@@ -256,8 +265,8 @@ class SettingsPage extends StatelessWidget {
   Widget _pointChange(String title, Icon icon, BuildContext context,
       PasswordModel passwordModel, LockModel lockModel) {
     return GestureDetector(
-      child: Container(key: keyButton4,
-
+      child: Container(
+          key: keyButton4,
           padding: EdgeInsets.all(8.0),
           decoration: new BoxDecoration(
               color: Colors.white,
@@ -269,12 +278,14 @@ class SettingsPage extends StatelessWidget {
                 margin: EdgeInsets.all(5.0),
                 child: icon,
               ),
-              Text(
+              Expanded(
+                  child: Text(
                 title,
                 style: TextStyle(
                   color: Colors.black,
                 ),
-              ),
+              )),
+              Icon(Ionicons.ios_arrow_forward)
             ],
           )),
       onTap: () {
@@ -347,12 +358,14 @@ class SettingsPage extends StatelessWidget {
                 margin: EdgeInsets.all(5.0),
                 child: icon,
               ),
-              Text(
+              Expanded(
+                  child: Text(
                 title,
                 style: TextStyle(
                   color: Colors.black,
                 ),
-              ),
+              )),
+              Icon(Ionicons.ios_arrow_forward)
             ],
           )),
       onTap: () {
@@ -381,7 +394,7 @@ class SettingsPage extends StatelessWidget {
 
   Widget _opinionPage(String title, Icon icon, BuildContext context) {
     return GestureDetector(
-      child: Container(        
+      child: Container(
           padding: EdgeInsets.all(8.0),
           decoration: new BoxDecoration(
               color: Colors.white,
@@ -393,12 +406,14 @@ class SettingsPage extends StatelessWidget {
                 margin: EdgeInsets.all(5.0),
                 child: icon,
               ),
-              Text(
+              Expanded(
+                  child: Text(
                 title,
                 style: TextStyle(
                   color: Colors.black,
                 ),
-              ),
+              )),
+              Icon(Ionicons.ios_arrow_forward),
             ],
           )),
       onTap: () {
@@ -452,12 +467,14 @@ class SettingsPage extends StatelessWidget {
                 margin: EdgeInsets.all(5.0),
                 child: icon,
               ),
-              Text(
+              Expanded(
+                  child: Text(
                 title,
                 style: TextStyle(
                   color: Colors.black,
                 ),
-              ),
+              )),
+              Icon(Ionicons.ios_arrow_forward)
             ],
           )),
       onTap: () {
@@ -499,12 +516,14 @@ class SettingsPage extends StatelessWidget {
                 margin: EdgeInsets.all(5.0),
                 child: icon,
               ),
-              Text(
+              Expanded(
+                  child: Text(
                 title,
                 style: TextStyle(
                   color: Colors.black,
                 ),
-              ),
+              )),
+              Icon(Ionicons.ios_arrow_forward)
             ],
           )),
       onTap: () {
@@ -545,12 +564,14 @@ class SettingsPage extends StatelessWidget {
                 margin: EdgeInsets.all(5.0),
                 child: icon,
               ),
-              Text(
+              Expanded(
+                  child: Text(
                 title,
                 style: TextStyle(
                   color: Colors.black,
                 ),
-              ),
+              )),
+              Icon(Ionicons.ios_arrow_forward)
             ],
           )),
       onTap: () {
@@ -577,7 +598,7 @@ class SettingsPage extends StatelessWidget {
     );
   }
 
-   void showTutorial(context) {
+  void showTutorial(context) {
     TutorialCoachMark(context,
         targets: targets,
         colorShadow: Theme.of(context).primaryColor.withAlpha(200),
@@ -721,5 +742,3 @@ class SettingsPage extends StatelessWidget {
     ));
   }
 }
-
-
