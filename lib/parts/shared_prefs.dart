@@ -69,7 +69,7 @@ class SharePrefs {
       _sharedPreferences.setInt(totalPoint, value);
 
   static int getTotalPoint() =>
-      _sharedPreferences.getInt(totalPoint) ?? 3;
+      _sharedPreferences.getInt(totalPoint) ?? 0;
 
   static void deleteTotalPoint() => _sharedPreferences.remove(totalPoint);
 
@@ -78,7 +78,7 @@ class SharePrefs {
       _sharedPreferences.setInt(totalPointEver, value);
 
   static int getTotalPointEver() =>
-      _sharedPreferences.getInt(totalPointEver) ?? 3;
+      _sharedPreferences.getInt(totalPointEver) ?? 0;
 
   static void deleteTotalPointEver() => _sharedPreferences.remove(totalPointEver);
 
