@@ -9,7 +9,7 @@ import 'package:colleks/view/HistoryPage.dart';
 import 'package:colleks/view/PointChangePage.dart';
 import 'package:colleks/view/PasswordSettingPage.dart';
 import 'package:colleks/view/RockSettingPage.dart';
-import 'package:colleks/view/FirstTutorialPage.dart';
+import 'package:colleks/view/FitstTutorialPageScafold.dart';
 import 'package:colleks/model/LaborModel.dart';
 import 'package:colleks/model/RewardModel.dart';
 import 'package:colleks/model/HistoryModel.dart';
@@ -90,16 +90,13 @@ class _MyHomePageState extends State<MyHomePage> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       var prefs = await SharedPreferences.getInstance();
       if (prefs.getBool('isFirstLaunch') ?? true) {
-
-  final ValueNotifier<double> notifier = ValueNotifier(0);
-  int pageCount = 6;
-
+        prefs.setBool('isFirstLaunch', false);
+        prefs.setInt('version', 1);
         Navigator.push(
             context,
             new MaterialPageRoute(
-                builder: (context) => new FirstTutorialPage(
-                              pageCount: pageCount,
-            notifier: notifier,
+                builder: (context) => FirstTutorialPageScafold(
+            
                 )));
       }
     });
